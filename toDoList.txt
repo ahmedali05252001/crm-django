@@ -1,0 +1,51 @@
+(Done)-Create virtual Environment,install django and create project
+(Done)-Base pages / templates
+    (Done)-Create app for pages
+    (Done)-Create base template
+    (Done)-Create front page
+    (Done)-Create about page
+-Authentication
+    (Done)-Create database model for userprofiles
+    (Done)-Make it possible to sign up
+    (Done)-Make it possible to log in
+    (Done)-Make it possible to log out
+(Done)-Simple Dashboard
+-Create new leads
+-Change and delete leads
+-Convert leads to clients
+-Change and delete clients
+-Implement solution for teams
+-Implement a payment solution /Monthly recurring payments
+-Deploy 
+
+
+
+
+1-enviroment :  create vritual enviroment, install django, create django project(django-admin startproject crmProject)
+        manage.py-> we will use to interact with the database,to create the users
+2-create the app in order to have the pages(python manage.py startapp core)
+3-create the base template in order to integrate it to the other pages of the app
+        -we will create the base template using tailwindcss
+        -then create the views at the views.py
+        -inform the django for the view using the urls.py
+4-run the server in order to use it during the development  (python manage.py runserver)
+5-create the index page(front) then extend the base template & write the content of the front page.
+6-create the about page then extend the base template & write the content of the about page.
+7-Authentication, create a new app for the userprofile(python manage.py startapp userprofile)
+8-Create the database model for userprofiles(django comes with a builtin funcionalities for the username name and the email infos)
+    -create the user associated with a userprofile
+    -create the database( python manage.py makemigrations) createing the Userprofile model- userprofile\migrations\0001_initial.py
+    -initialize the database (python manage.py migrate)
+    -create the superuser in order to admin and create the other users(python manage.py createsuperuser - admin, admin@ahmedcrm.com, admin123)
+    -later create the userprofile of the user
+    -let the django know the userprofiles in the admin UI
+9-Make it possible to sign up using the django builtin funcionalities(using the creationUserForm)
+    -    <form method="post" action=".">{% csrf_token %}</form>  and use the builtin tag,provide the security of the web app from the unathorized user who tries to have access, by making it a hiden field
+    -add the form and the submit button then write the background part at the views.py in order to make the form to get submit
+    -make the control for the signup part(if the request is post,get)
+10-Django comes with a builtin funcionalities too for log in part(we used a buildin view for login)
+    -fix the directions link at the setting.py
+11- Django comes out with builtin funcionalities for the logout part too
+12- we created the logout button too and we fixed the control of the buttons
+13- Create a new app for the dashboard, create the dashboard page and the urls
+14- Block the unauthenticated person to get access to the dashboard(views.py -> @login_required)

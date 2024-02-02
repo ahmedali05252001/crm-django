@@ -1,0 +1,33 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <title>{% block title %} {% endblock %}</title>
+</head>
+<body>
+    <nav class="py-4 px-10 flex justify-between bg-indigo-400"> 
+        <a href="/" class="text-white">AhmedCRM</a>
+
+        <div class="space-x-1">
+            <a href="{% url 'about' %}" class="text-white px-6">About</a>
+            {% if request.user.is_authenticated %}
+                <a href="{% url 'dashboard' %}" class="py-2 px-6 bg-indigo-500 rounded-lg text-white">Dashboard</a>
+                <a href="{% url 'index' %}" class="py-2 px-6 bg-red-500 rounded-lg text-white">Log Out</a>
+            {% else %}
+                <a href="{% url 'login' %}" class="py-2 px-6 bg-indigo-500 rounded-lg text-white">Log In</a>
+                <a href="{% url 'signup' %}" class="py-2 px-6 bg-indigo-500 rounded-lg text-white">Sign Up</a>
+            {% endif %}
+            
+        </div>
+    </nav>
+
+    {% block content %}
+    {% endblock %}
+
+    <footer class="py-8 bg-gray-200 text-center">
+        <p class="text-xs">Copyright (c) 20222 - AhmedCRM</p>
+    </footer>
+</body>
+</html>
