@@ -4,14 +4,19 @@
     (Done)-Create base template
     (Done)-Create front page
     (Done)-Create about page
--Authentication
+(Done)-Authentication
     (Done)-Create database model for userprofiles
     (Done)-Make it possible to sign up
     (Done)-Make it possible to log in
     (Done)-Make it possible to log out
 (Done)-Simple Dashboard
--Create new leads
--Change and delete leads
+(Done)-Create new leads
+    (Done)-New django app
+    (Done)-Database models
+    (Done)-Views/Forms for leads
+    (Done)-List out leads
+    (Done)-View detail page of leads
+(Done)-Change and delete leads
 -Convert leads to clients
 -Change and delete clients
 -Implement solution for teams
@@ -49,3 +54,17 @@
 12- we created the logout button too and we fixed the control of the buttons
 13- Create a new app for the dashboard, create the dashboard page and the urls
 14- Block the unauthenticated person to get access to the dashboard(views.py -> @login_required)
+15- Create a new app for the leads
+    -create the model for the lead related to the user(inside the models.py file)
+    -(python manage.py makemigrations)   apply the changes in the database
+    -(python manage.py migrate)    apply the generated migrations and update the database schema
+16- Create the lead page and add the view
+    -create a forms.py to use the django ...
+    -Implement the form just for authenticated users(backend at the views.py file, frontend at .html files)
+    -write the backend for the form submit request in the views.py of the lead app
+17- Create one more page inside the lead app
+    -create the page backend iside the view.py of the lead
+18- Create the leads list using the loop throught the list of the x user
+19- Create the leads detail page
+20- Create the delete button and the backend of this action and showing a django message
+21- Make possible to edit the leads,by creating the backend at the views.py and the frontend at the template/leads
