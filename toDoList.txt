@@ -17,9 +17,16 @@
     (Done)-List out leads
     (Done)-View detail page of leads
 (Done)-Change and delete leads
--Convert leads to clients
--Change and delete clients
+(Done)-Convert leads to clients
+(Done)-Show a list of the clients
+(Done)-Show a detail page of a client
+(Done)-Add clients
+(Done)-Change and delete clients
 -Implement solution for teams
+    -Create teams app
+    -Model for teams
+    -Create new teams
+    -You need to be a member of a team
 -Implement a payment solution /Monthly recurring payments
 -Deploy 
 
@@ -68,3 +75,16 @@
 19- Create the leads detail page
 20- Create the delete button and the backend of this action and showing a django message
 21- Make possible to edit the leads,by creating the backend at the views.py and the frontend at the template/leads
+22- Create a new app for the clients
+    -create the model
+    -makemigrations and migrate of the models in the database
+    -create the backend function inside the views.py of the lead
+    -add the url
+    -add the button in order to make the operation
+23- Create a new html file to list the clients
+    -Add the backend at the views
+    -Create the local urls file and link it with the main url
+    -Create the frontend part clients_list.html
+24- Create the detail page of the clients
+25- Create the add clients part
+26- Change and delete the clients part

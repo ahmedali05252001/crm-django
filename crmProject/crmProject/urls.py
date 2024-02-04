@@ -9,6 +9,7 @@ urlpatterns = [
     path("", index, name="index"),
     path("dashboard/leads/", include("lead.urls")),
     path("dashboard/", include("dashboard.urls")),
+    path("dashboard/clients/", include("client.urls")),
     path("about/", about, name="about"),
     path("sign-up/", signup, name="signup"),
     path("log-in/", views.LoginView.as_view(template_name = "userprofile/login.html"), name="login"),

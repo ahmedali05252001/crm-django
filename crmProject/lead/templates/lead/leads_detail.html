@@ -8,6 +8,8 @@
     <div class="py-6 px-10">
         <h1 class="mb-4 text-xl">{{ lead.name }}</h1>
 
+        <hr class="my-5">
+
         <p class="font-semibold">Email</p>
         <p class="mb-2">{{ lead.email }}</p>
 
@@ -32,6 +34,13 @@
         
         <a href = " {% url 'leads_edit' lead.id %} " class="mr-5 py-2 px-7 rounded-lg bg-indigo-500 text-white"> Edit </a>
         <a href = " {% url 'leads_delete' lead.id %} " class="mr-5 py-2 px-5 rounded-lg bg-red-500 text-white"> Delete </a>
+
+        <hr class="my-5">
+
+        <a href = " {% url 'leads_convert' lead.id %} " class="mr-5 py-2 px-3 rounded-lg bg-indigo-500 text-white"> Convert to client</a>
+
+        <hr class="my-5">
+    
         <a href="{% url "leads_list" %}" class="py-2 px-3 rounded-lg bg-green-500 text-white">Go back</a>
     </div>
     
