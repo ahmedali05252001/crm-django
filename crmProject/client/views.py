@@ -5,6 +5,9 @@ from django.contrib import messages
 from .forms import AddClientForm
 from .models import Client
 
+from team.models import Team
+
+
 @login_required
 def clients_list(request):
     clients = Client.objects.filter(created_by = request.user)
@@ -25,13 +28,17 @@ def clients_detail(request, pk):
     
 @login_required
 def clients_add(request):
+    team = Team.objects.filter(created_by = request.user)[0]
+    
     if request.method == "POST":
         form = AddClientForm(request.POST)
         
         if form.is_valid():
+            team = Team.objects.filter(created_by = request.user)[0]
             # Prevent from comitting to the db before we add the user
             client = form.save(commit=False)
             client.created_by = request.user
+            client.team = team
             client.save()
             
             messages.success(request, "The client was created.")
@@ -41,7 +48,8 @@ def clients_add(request):
         form = AddClientForm()
         
     return render(request, "client/clients_add.html",{
-        "form": form
+        "form": form,
+        "team": team,
     })
     
 @login_required

@@ -22,11 +22,15 @@
 (Done)-Show a detail page of a client
 (Done)-Add clients
 (Done)-Change and delete clients
--Implement solution for teams
-    -Create teams app
-    -Model for teams
-    -Create new teams
-    -You need to be a member of a team
+(Done)-Implement solution for teams
+    (Done)-Create teams app
+    (Done)-Model for teams
+    (Done)-When you create a lead, be sure to define the team
+    (Done)-When you create a client, be sure to define the team
+    (Done)-If you're not a member of a team, create one
+    (Done)-If you're the owner, make it possible to edit the team
+    (Done)-Limit number of leads
+    (Done)-Limit number of clients
 -Implement a payment solution /Monthly recurring payments
 -Deploy 
 
@@ -88,3 +92,16 @@
 24- Create the detail page of the clients
 25- Create the add clients part
 26- Change and delete the clients part
+27- Create the team app
+    -create the model, makemigrate and migrate the new stuffs
+    -create the relations with the leads and the clients
+    -Make sure when we create a new lead or a client or when we convert the lead to a client to assign the team to each of them
+    -make the list to show up in an alphabetic way by adding a meta class in the model files of the leads and the clients
+28- Fix the dashboard,Show the newest 5 leads and clients in seperated tables in the same row
+29- Create the myaccount file to show the infos of your team and to fix the logout button
+    -make the user to create a team when he sign up while he is not a member of a team
+29- Create the editTeam part
+    -make it possible to edit the name of the team only if you are the owner.
+30- Put the limits for the leads and clients number
+    -create the Plan model in order to limit the leads and the clients number
+    fix the limits control in the add lead and client frontend parts

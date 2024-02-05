@@ -5,5 +5,32 @@
 
 
 {% block content %}
+<div class = "py-4 px-10">
     <h1 class="text-xl">Dashboard</h1>   
+
+    <hr class="mt-5 mb-4">
+    
+    <div class = "flex space-x-4">
+        <div class = "w-1/2 py-4 px-2 bg-gray-100 rounded-xl leads">
+            <h2 class="text-lg mb-6 mt-2">Newest Leads</h2>
+            {% for lead in leads %}
+                <div class="mb-2 lead">
+                    <h3 class="font-semibold">{{ lead.name }}</h3>
+                    <p class = "text-xs">Status: {{lead.get_status_display}}</p>
+                    <p class = "text-xs">Priority: {{lead.get_priority_display}}</p>
+                    <a href="{% url "leads_detail" lead.pk %}">Details</a>
+                </div>
+            {% endfor %}
+        </div>
+        <div class = "w-1/2 py-4 px-2 bg-gray-100 rounded-xl clients">
+            <h2 class="text-lg mb-6 mt-2">Newest Clients</h2>
+            {% for client in clients %}
+                <div class="mb-2 client">
+                    <h3 class="font-semibold">{{ client.name }}</h3>
+                    <a href="{% url "clients_detail" client.pk %}">Details</a>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
 {% endblock %}
