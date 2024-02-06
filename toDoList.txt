@@ -31,6 +31,21 @@
     (Done)-If you're the owner, make it possible to edit the team
     (Done)-Limit number of leads
     (Done)-Limit number of clients
+(Done)-Refactoring 
+    (Done)-Install Tailwind instead of using the CDN
+    (Done)-Add name spaces to all of the apps
+    (Done)-Replace the leads list with a class based view(Replace of the funcion based views)
+    (Done)-Replace the leads detail with a class based view
+    (Done)-Replace the leads delete with a class based view
+    (Done)-Replace the leads edit with a class based view
+    (Done)-Replace the leads add with a class based view
+        (Done)-And give it a better name
+    (Done)-Replace the leads convert with a class based view
+
+-Export information (leads, clients)
+-Comunicate with each others
+-Add comments and similar to leads and clients
+-Upload files to leads and clients 
 -Implement a payment solution /Monthly recurring payments
 -Deploy 
 
@@ -88,7 +103,7 @@
 23- Create a new html file to list the clients
     -Add the backend at the views
     -Create the local urls file and link it with the main url
-    -Create the frontend part clients_list.html
+    -Create the frontend part clients:list.html
 24- Create the detail page of the clients
 25- Create the add clients part
 26- Change and delete the clients part
@@ -105,3 +120,10 @@
 30- Put the limits for the leads and clients number
     -create the Plan model in order to limit the leads and the clients number
     fix the limits control in the add lead and client frontend
+31- Refactoring the project
+    -we installed the tailwind in our project instead of using it as CDN
+    -add the namespaces for each app to make the code more clear and to prevent the errors(the namespace provides a scope)
+32- Convert the leads function based views to class based view
+
+
+REFACTORING = OPTIMIZING THE CODE, DELETE THE UNUSED PART ...
