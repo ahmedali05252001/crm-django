@@ -104,4 +104,4 @@
     -make it possible to edit the name of the team only if you are the owner.
 30- Put the limits for the leads and clients number
     -create the Plan model in order to limit the leads and the clients number
-    fix the limits control in the add lead and client frontend parts
+    fix the limits control in the add lead and client frontend
