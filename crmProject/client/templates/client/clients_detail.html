@@ -30,6 +30,7 @@
         <a href = "{% url 'clients:delete' client.id %}" class="mr-5 py-2 px-5 rounded-lg bg-red-500 text-white"> Delete </a>
 
         <hr class="my-5">
+        <hr class="my-5">
     
         <h2 class="text-xl">Comments</h2>
 
@@ -49,6 +50,32 @@
 
             <button class="mr-5 py-2 px-3 rounded-lg bg-indigo-500 text-white"> Submit </button>
         </form>
+
+
+        <hr class="my-5">
+        <hr class="my-5">
+
+        <h2 class="text-xl mb-4">Files</h2>
+
+        <div class="space-y-4 mb-5">
+            {% for file in client.files.all %}
+                <div class="mt-5 bg-gray-100 py-6 px-5 rounded-xl">
+                    <p class = "mb-2"> <strong> {{ file.created_by }} </strong> @{{ file.created_at }}</p>
+                    
+
+                    <a href = "{{ file.file.url }}" class='px-1 font-semibold '> Preview </a>
+                </div>
+            {% endfor %}
+        </div>   
+
+        <form method="post" action="{% url 'clients:add_file' client.id %}" enctype = "multipart/form-data">
+            {% csrf_token %}
+
+            {{ fileform.as_p }}
+
+            <button class="mr-5 mt-5 py-2 px-3 rounded-lg bg-indigo-500 text-white"> Submit </button>
+        </form>
+        
 
         <hr class="my-5">
 

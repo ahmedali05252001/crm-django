@@ -1,12 +1,32 @@
+import csv
+
+from django.http import HttpResponse
 from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 
-from .forms import AddClientForm, AddCommentForm
+from .forms import AddClientForm, AddCommentForm, AddFileForm
 from .models import Client
 
 from team.models import Team
 
+
+@login_required
+def clients_export(request):
+    clients = Client.objects.filter(created_by = request.user)
+    
+    response = HttpResponse(
+        content_type = "text/csv",
+        headers = {"Content-Disposition": "attachment ; filename = 'clients.csv'"},
+    )
+    
+    writer = csv.writer(response)
+    writer.writerow(["Client", "Email", "Description", "Created by", "Created at"])
+    
+    for client in clients:
+        writer.writerow([client.name, client.email, client.description, client.created_by, client.created_at])
+    
+    return response
 
 @login_required
 def clients_list(request):
@@ -16,6 +36,23 @@ def clients_list(request):
         "clients": clients
     })
     # return render(request, "client/clients:list.html")
+
+@login_required
+def clients_add_file(request, pk):
+    client = get_object_or_404(Client, created_by = request.user, pk = pk)
+    team = Team.objects.filter(created_by = request.user)[0]
+    
+    if request.method == "POST":
+        form = AddFileForm(request.POST, request.FILES)
+        if form.is_valid():
+            file = form.save(commit=False)
+            file.team = team
+            file.created_by = request.user
+            file.client_id = pk
+            file.save()
+            
+            return redirect("clients:detail", pk = pk)
+    return redirect("clients:detail", pk = pk)
 
 @login_required
 def clients_detail(request, pk):
@@ -39,6 +76,7 @@ def clients_detail(request, pk):
     return render(request, "client/clients_detail.html", {
         "client": client,
         "form": form,
+        "fileform": AddFileForm(),
     })
     
 @login_required

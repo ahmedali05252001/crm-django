@@ -7,7 +7,7 @@
 {% block content %}
 <div class="py-4 px-10">
     <h1 class="mb-4 text-xl">Clients</h1>
-    <a href="{% url 'clients:add' %}" class="mb-6 inline-block py-2 px-6 bg-indigo-500 rounded-lg text-white">Add
+    <a href="{% url 'clients:add' %}" class="mb-6 inline-block py-2 px-5 bg-indigo-500 rounded-lg text-white">Add
         Client</a>
 
     <hr>
@@ -26,6 +26,10 @@
     {% else %}
         <p class="mt-1 py-2 px-2 text-red-500">There are no clients in the database yet...</p>
     {% endif %}
+
+    <hr class="my-5">
+
+    <a href = "{% url 'clients:export' %}" class="mr-5 py-2 px-5 rounded-lg bg-green-500 text-white"> Export Clients</a>
 </div>
 
 {% endblock %}

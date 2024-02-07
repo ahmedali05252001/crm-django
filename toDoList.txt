@@ -42,9 +42,9 @@
         (Done)-And give it a better name
     (Done)-Replace the leads convert with a class based view
 (Done)-Add comments and similar to leads and clients
--Export information (leads, clients)
+(Done)-Upload files to leads and clients 
+(Done)-Export information (leads, clients)
 -Comunicate with each others
--Upload files to leads and clients 
 -Implement a payment solution /Monthly recurring payments
 -Deploy 
 
@@ -130,3 +130,5 @@ REFACTORING = OPTIMIZING THE CODE, DELETE THE UNUSED PART ...
 
 
 34- Add the comment part at the leads and client details part.
+35- Upload files to leads and clients edit page
+36- Export information in a csv file of a specific client or a lead
