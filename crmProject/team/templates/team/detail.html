@@ -1,0 +1,28 @@
+{% extends "core/base.html" %}
+
+
+{% block title %} {{ team.name }} {% endblock %}
+
+
+{% block content %}
+    <div class="py-4 px-10">
+        <h1 class = "text-xl mb-2"> {{ team.name }} </h1>
+
+        <a href="{% url 'team:list' %}"> Switch team </a>
+
+        {% if team.created_by == request.user %}
+            <a href = "{% url 'team:edit' team.id %}">(Edit)</a>
+        {% endif %}
+
+        <p><strong>Team owner: </strong>{{ team.created_by }}</p>
+
+        <hr class = "mt-4 mb-4">
+
+        <h2 class = "font-semibold">Team Members</h2>
+
+        {% for member in team.members.all %}
+            <p>{{ member.username }}</p>
+        {% endfor %}
+    
+    </div>
+{% endblock %}

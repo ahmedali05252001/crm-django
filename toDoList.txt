@@ -44,6 +44,18 @@
 (Done)-Add comments and similar to leads and clients
 (Done)-Upload files to leads and clients 
 (Done)-Export information (leads, clients)
+(Done)-Replace the dispatch with loginrequirements
+(Done)-Show active team in menu
+(Done)-Team detail page with member list
+(Done)-Clean up base.html with includes
+(Done)-Fix stying for login and signup
+(Done)-Make sure the team doesn't need to have a plan (then automatically free)
+(Done)-Add extra field to userprofile to keep track of active team
+(Done)-Fix stying for login and signup
+(Done)-Fix signup (Should not be request.user , only user (line 18 and 19))
+-Make possible to switch team
+    -Make sure every hardcoded tea, selector is replaced
+
 -Comunicate with each others
 -Implement a payment solution /Monthly recurring payments
 -Deploy 
@@ -132,3 +144,4 @@ REFACTORING = OPTIMIZING THE CODE, DELETE THE UNUSED PART ...
 34- Add the comment part at the leads and client details part.
 35- Upload files to leads and clients edit page
 36- Export information in a csv file of a specific client or a lead
+37- Make the team active using the context processor of the django
